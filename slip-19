@@ -1,0 +1,103 @@
+Slip 19
+Q1.Write a program to accept the 'n' different numbers from user and store it in array. Display
+maximum number from an array.
+:-
+import java.util.Scanner;
+
+public class Maxnum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements (n): ");
+        int n = scanner.nextInt();
+
+        // Create an array to store the numbers
+        int[] numbers = new int[n];
+
+        // Input 'n' numbers from the user
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter number " + (i + 1) + ": ");
+            numbers[i] = scanner.nextInt();
+        }
+
+        // Find the maximum number in the array
+        int max = numbers[0];
+        for (int i = 1; i < n; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+        }
+
+        System.out.println("Maximum number in the array: " + max);
+    }
+}
+
+
+
+
+
+
+Q2. Create an abstract class “order” having members id, description. Create a subclass “Purchase
+Order” having member as customer name. Define methods accept and display. Create 3 objects
+each of Purchase Order. Accept and display the details. 
+:-
+abstract class Order {
+    protected int id;
+    protected String description;
+
+    public Order(int id, String description) {
+        this.id = id;
+        this.description = description;
+    }
+
+    public abstract void accept();
+    public abstract void display();
+}
+
+class PurchaseOrder extends Order {
+    private String customerName;
+
+    public PurchaseOrder(int id, String description, String customerName) {
+        super(id, description);
+        this.customerName = customerName;
+    }
+
+    @Override
+    public void accept() {
+        // You can implement the input logic here to accept the customer name
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Order ID: " + id);
+        System.out.println("Description: " + description);
+        System.out.println("Customer Name: " + customerName);
+    }
+}
+
+    class Main {
+    public static void main(String[] args) {
+        PurchaseOrder order1 = new PurchaseOrder(1, "First Order", "John Doe");
+        PurchaseOrder order2 = new PurchaseOrder(2, "Second Order", "Jane Smith");
+        PurchaseOrder order3 = new PurchaseOrder(3, "Third Order", "Alice Johnson");
+
+        order1.accept();  // You can implement logic to accept details here
+        order2.accept();
+        order3.accept();
+
+        order1.display();
+        order2.display();
+        order3.display();
+    }
+}
+
+                                                                 
+
+
+
+OR
+
+
+
+
+Q2. Write a servlet program to display current date and time
