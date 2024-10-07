@@ -1,0 +1,93 @@
+Slip 13
+Q1. Construct a Linked List having names of Fruits: Apple, Banana, Guava and Orange. Display the
+contents of the List using an Iterator. 
+:-
+import java.util.LinkedList;
+import java.util.Iterator;
+
+public class Fruits {
+    public static void main(String[] args) {
+        // Create a LinkedList of fruit names
+        LinkedList<String> fruitList = new LinkedList<>();
+
+        // Add fruit names to the list
+        fruitList.add("Apple");
+        fruitList.add("Banana");
+        fruitList.add("Guava");
+        fruitList.add("Orange");
+
+        // Create an iterator to traverse the list
+        Iterator<String> iterator = fruitList.iterator();
+
+        // Display the contents using the iterator
+        System.out.println("Fruit List:");
+        while (iterator.hasNext()) {
+            String fruit = iterator.next();
+            System.out.println(fruit);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+Q2. Define an interface “Operation” which has methods area(),volume(). Define a constant PI having
+value 3.142. Create a class circle (member – radius) which implements this interface. Calculate and
+display the area and volume.
+:-
+interface Operation {
+    double PI = 3.142;  // Constant PI
+
+    double area();    // Method to calculate area
+    double volume();  // Method to calculate volume
+}
+
+class Circle implements Operation {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        // Calculate the area of the circle
+        return PI * radius * radius;
+    }
+
+    @Override
+    public double volume() {
+        // Volume doesn't apply to a 2D circle, so return 0.
+        return 0;
+    }
+
+    public void displayArea() {
+        System.out.println("Area of the circle: " + area());
+    }
+
+    public void displayVolume() {
+        System.out.println("Volume of the circle: " + volume());
+    }
+
+    public static void main(String[] args) {
+        double circleRadius = 5.0;  // Replace with your desired radius
+        Circle circle = new Circle(circleRadius);
+
+        circle.displayArea();
+        circle.displayVolume();
+    }
+}
+
+                                                              OR
+
+
+
+
+
+
+Q2. Write a class Student with attributes roll no, name, age and course. Initialize values through
+parameterized constructor. If age of student is not in between 15 and 21 then generate userdefined exception ―Age Not Within The Range.
