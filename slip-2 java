@@ -1,0 +1,90 @@
+Slip 2
+Q1. Write a program to accept ‘n’ integers from the user & store them in an Array List collection. 
+Display the elements of Array List.
+:-
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Arraylist {
+    public static void main(String[] args) {
+        // Create an ArrayList to store integers
+        ArrayList<Integer> arrayList = new ArrayList<>();
+
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of integers (n): ");
+        int n = scanner.nextInt();
+
+        // Read 'n' integers from the user and add them to the ArrayList
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter integer " + (i + 1) + ": ");
+            int num = scanner.nextInt();
+            arrayList.add(num);
+        }
+
+        // Close the scanner
+        scanner.close();
+
+        // Display the elements of the ArrayList
+        System.out.println("Elements in the ArrayList:");
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.println("Element " + (i + 1) + ": " + arrayList.get(i));
+        }
+    }
+}
+
+
+
+
+
+Q2. Define a class MyNumber having one private integer data member. Write a default constructor
+initialize it to 0 and another constructor to initialize it to a value. Write methods isNegative, isPositive, isOdd, iseven. Use command line argument to pass a value to the object and perform the
+above operations.
+:-
+                                                                            
+
+
+OR
+
+
+
+
+
+
+
+Q2. Write a program to accept Doctor Name from 
+the user and check whether it is valid or not.(It
+should not contain digits and special symbol) If it is not valid then throw user defined Exception - Name is Invalid -- otherwise display it
+:-
+
+import java.util.Scanner;
+    class InvalidNameException extends Exception {
+        public InvalidNameException(String message) {
+            super(message);
+        }
+    }
+
+    public class DoctorNameValidator {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            try {
+                System.out.print("Enter the doctor's name: ");
+                String doctorName = scanner.nextLine();
+                validateDoctorName(doctorName);
+                System.out.println("Doctor's name is valid: " + doctorName);
+            } catch (InvalidNameException e) {
+                System.out.println("Error: " + e.getMessage());
+            } finally {
+                scanner.close();
+            }
+        }
+
+        public static void validateDoctorName(String name) throws InvalidNameException {
+            // Check if the name contains digits or special symbols
+            if (name.matches(".[0-9!@#$%^&()_+\\-=\\[\\]{};':\"\\\\|,.<>/?].*")) {
+                throw new InvalidNameException("Name is Invalid. It should not contain digits or special symbols.");
+            }
+        }
+    }
