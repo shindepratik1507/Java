@@ -1,0 +1,108 @@
+Slip 9
+Q1. Write a program to accept a number from user. Check whether number is perfect or not. Use BufferedReader class for accepting input from user. [10 Marks]
+:-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class PerfectNum {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter a number: ");
+        int num = Integer.parseInt(br.readLine());
+
+        if (isPerfectNumber(num)) {
+            System.out.println(num + " is a perfect number.");
+        } else {
+            System.out.println(num + " is not a perfect number.");
+        }
+    }
+
+    public static boolean isPerfectNumber(int num) {
+        if (num <= 1) {
+            return false;
+        }
+
+        int sum = 1;
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                if (i * i != num) {
+                    sum = sum + i + num / i;
+                } else {
+                    sum = sum + i;
+                }
+            }
+        }
+
+        return sum == num;
+    }
+}
+
+
+
+
+
+
+
+
+Q2. Define a “Point” class having members – x,y(coordinates). Define default constructor and
+parameterized constructors. Define subclass “Point3D” with member as z (coordinate). Write display
+method to show the details of Point.
+ :-
+class Point {
+     int x;
+     int y;
+
+    // Default constructor
+    public Point() {
+        x = 0;
+        y = 0;
+    }
+
+    // Parameterized constructor
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void display() {
+        System.out.println("Point: (" + x + ", " + y + ")");
+    }
+}
+
+class Point3D extends Point {
+    private int z;
+
+    // Parameterized constructor for Point3D
+    public Point3D(int x, int y, int z) {
+        super(x, y); // Call the parameterized constructor of the superclass
+        this.z = z;
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Point3D: (" + super.x + ", " + super.y + ", " + z + ")");
+    }
+}
+
+ class Main {
+    public static void main(String[] args) {
+        Point point2D = new Point(1, 2);
+        Point3D point3D = new Point3D(3, 4, 5);
+
+        point2D.display(); // Display the 2D point
+        point3D.display(); // Display the 3D point
+    }
+}
+                                                       
+
+
+
+
+OR
+
+
+
+
+Q2. Write a program that displays the number of characters, lines and words
