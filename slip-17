@@ -1,0 +1,90 @@
+Slip 17
+Q1. Define a class MyNumber having one private integer data member. Write a parameterized
+constructor to initialize to a value. Write isOdd() to check given number is odd or not. Use commandline
+argument to pass a value to the object. 
+:-
+public class MyNumber {
+    private int number;
+
+    public MyNumber(int value) {
+        number = value;
+    }
+
+    public boolean isOdd() {
+        return number % 2 != 0;
+    }
+
+    public static void main(String[] args) {
+        if (args.length == 1) {
+            try {
+                int value = Integer.parseInt(args[0]);
+                MyNumber myNumber = new MyNumber(value);
+
+                if (myNumber.isOdd()) {
+                    System.out.println(value + " is an odd number.");
+                } else {
+                    System.out.println(value + " is not an odd number.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please provide a valid integer.");
+            }
+        } else {
+            System.out.println("Usage: java MyNumber <integer>");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+Q2. Define a class Student with attributes rollno and name. Define default and parameterized
+constructor. Keep the count of Objects created. Create objects using parameterized constructor and
+Display the object count after each object is created.
+:-
+class Student {
+    private int rollno;
+    private String name;
+    private static int objectCount = 0;
+
+    public Student() {
+        objectCount++;
+    }
+
+    public Student(int rollno, String name) {
+        this.rollno = rollno;
+        this.name = name;
+        objectCount++;
+    }
+
+    public static int getObjectCount() {
+        return objectCount;
+    }
+}
+
+    class Main {
+    public static void main(String[] args) {
+        Student student1 = new Student(); // Create an object using the default constructor
+        System.out.println("Object count after student1: " + Student.getObjectCount());
+
+        Student student2 = new Student(101, "Alice"); // Create an object using the parameterized constructor
+        System.out.println("Object count after student2: " + Student.getObjectCount());
+
+        Student student3 = new Student(102, "Bob"); // Create another object using the parameterized constructor
+        System.out.println("Object count after student3: " + Student.getObjectCount());
+    }
+}
+
+                                                                OR
+
+
+
+
+
+
+Q2. Write a JSP program to perform Arithmetic operations such as Addition and Subtraction. Design a HTML to accept two numbers in text box and radio buttons to display operations. On
+submit display result as per the selected operation on next page using JS
